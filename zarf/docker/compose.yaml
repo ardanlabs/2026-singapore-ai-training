@@ -1,0 +1,56 @@
+services:
+  postgres:
+    image: pgvector/pgvector:pg18
+    container_name: postgres
+    restart: always
+    pull_policy: never
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_PASSWORD=postgres
+    volumes:
+      - ./sql-data:/var/lib/postgresql/18/docker
+
+  mongodb:
+    image: mongodb/mongodb-atlas-local:8.2
+    container_name: mongodb
+    hostname: mongodb
+    privileged: true
+    restart: always
+    pull_policy: never
+    environment:
+      - MONGODB_INITDB_ROOT_USERNAME=ardan
+      - MONGODB_INITDB_ROOT_PASSWORD=ardan
+      - MONGODB_REPLICA_SET_NAME=rs0
+    ports:
+      - "27017-27019:27017-27019"
+    volumes:
+      - ./mongodb:/data/
+      - ./mongodb/db:/data/db
+      - ./mongodb/configdb:/data/configdb
+    user: "${UID:-503}:${GID:-20}"
+
+  docling:
+    image: quay.io/docling-project/docling-serve:v1.9.0
+    container_name: docling
+    restart: always
+    pull_policy: never
+    environment:
+      - DOCLING_SERVE_ENABLE_UI=1
+    extra_hosts:
+      - host.docker.internal:host-gateway
+    ports:
+      - "5001:5001"
+    volumes:
+      - ./docling:/scratch
+
+volumes:
+  postgres:
+    external: true
+    name: postgres
+  mongodb:
+    external: true
+    name: mongodb
+  docling:
+    external: true
+    name: docling

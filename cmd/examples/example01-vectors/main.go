@@ -4,7 +4,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/ardanlabs/temp-ai-training/foundation/vector"
+	"github.com/ardanlabs/2026-singapore-ai-training/foundation/vector"
 )
 
 type data struct {

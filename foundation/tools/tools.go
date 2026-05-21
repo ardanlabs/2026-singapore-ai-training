@@ -6,7 +6,7 @@ import (
 	"encoding/json"
 	"strings"
 
-	"github.com/ardanlabs/temp-ai-training/foundation/client"
+	"github.com/ardanlabs/2026-singapore-ai-training/foundation/client"
 )
 
 // PreviewMaxChars is the maximum number of characters to show in a tool

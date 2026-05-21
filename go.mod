@@ -1,4 +1,4 @@
-module github.com/ardanlabs/temp-ai-training
+module github.com/ardanlabs/2026-singapore-ai-training
 
 go 1.26.3
 

@@ -53,7 +53,7 @@ const (
 	searchLimit = 5
 
 	// Step 03
-	similarityThreshold = 0.50
+	similarityThreshold = 0.60
 )
 
 var (

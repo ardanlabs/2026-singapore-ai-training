@@ -29,7 +29,7 @@ import (
 	"os"
 	"time"
 
-	"github.com/ardanlabs/ai-training/foundation/client"
+	"github.com/ardanlabs/2026-singapore-ai-training/foundation/client"
 )
 
 var (

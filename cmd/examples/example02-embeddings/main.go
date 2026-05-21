@@ -118,5 +118,25 @@ func run() error {
 
 	// endregion
 
+	// -------------------------------------------------------------------------
+	// Compare similarities
+	// region Compare similarities
+
+	// Compare each data point to every other by performing a cosine
+	// similarity comparison using the vector embedding from the LLM.
+	for _, target := range dataPoints {
+		results := vector.Similarity(target, dataPoints...)
+
+		for _, result := range results {
+			fmt.Printf("%s -> %s: %.2f%% similar\n",
+				result.Target.(data).Name,
+				result.DataPoint.(data).Name,
+				result.Percentage)
+		}
+		fmt.Print("\n")
+	}
+
+	// endregion
+
 	return nil
 }

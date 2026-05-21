@@ -7,8 +7,8 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/ardanlabs/ai-training/foundation/client"
-	fntools "github.com/ardanlabs/ai-training/foundation/tools"
+	"github.com/ardanlabs/2026-singapore-ai-training/foundation/client"
+	fntools "github.com/ardanlabs/2026-singapore-ai-training/foundation/tools"
 	"github.com/jmoiron/sqlx"
 )
 

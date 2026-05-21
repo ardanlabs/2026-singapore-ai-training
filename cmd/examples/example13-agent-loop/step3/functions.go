@@ -5,9 +5,9 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/ardanlabs/ai-training/foundation/client"
-	"github.com/ardanlabs/ai-training/foundation/rag"
-	fntools "github.com/ardanlabs/ai-training/foundation/tools"
+	"github.com/ardanlabs/2026-singapore-ai-training/foundation/client"
+	"github.com/ardanlabs/2026-singapore-ai-training/foundation/rag"
+	fntools "github.com/ardanlabs/2026-singapore-ai-training/foundation/tools"
 	"github.com/jmoiron/sqlx"
 )
 

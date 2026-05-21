@@ -39,10 +39,10 @@ import (
 	"strings"
 	"time"
 
-	"github.com/ardanlabs/ai-training/foundation/client"
-	"github.com/ardanlabs/ai-training/foundation/sqldb"
-	fntools "github.com/ardanlabs/ai-training/foundation/tools"
-	"github.com/ardanlabs/ai-training/foundation/vector"
+	"github.com/ardanlabs/2026-singapore-ai-training/foundation/client"
+	"github.com/ardanlabs/2026-singapore-ai-training/foundation/sqldb"
+	fntools "github.com/ardanlabs/2026-singapore-ai-training/foundation/tools"
+	"github.com/ardanlabs/2026-singapore-ai-training/foundation/vector"
 	"github.com/jmoiron/sqlx"
 )
 

@@ -6,6 +6,8 @@ import (
 	"fmt"
 	"strings"
 
+	"github.com/ardanlabs/2026-singapore-ai-training/foundation/client"
+	"github.com/ardanlabs/2026-singapore-ai-training/foundation/vector"
 	"github.com/jmoiron/sqlx"
 )
 

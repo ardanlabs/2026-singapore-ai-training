@@ -3,6 +3,8 @@ package main
 
 import (
 	"fmt"
+
+	"github.com/ardanlabs/temp-ai-training/foundation/vector"
 )
 
 type data struct {
@@ -28,4 +30,44 @@ func (d data) Vector() []float64 {
 // String pretty prints an embedding to a vector representation.
 func (d data) String() string {
 	return fmt.Sprintf("%f", d.Vector())
+}
+
+func main() {
+
+	// Apply the feature dataPoints to the handcrafted embeddings.
+	dataPoints := []vector.Data{
+		data{Name: "Horse   ", Authority: 0.0, Animal: 1.0, Human: 0.0, Rich: 0.0, Gender: +1.0},
+		data{Name: "Man     ", Authority: 0.0, Animal: 0.0, Human: 1.0, Rich: 0.0, Gender: -1.0},
+		data{Name: "Woman   ", Authority: 0.0, Animal: 0.0, Human: 1.0, Rich: 0.0, Gender: +1.0},
+		data{Name: "King    ", Authority: 1.0, Animal: 0.0, Human: 1.0, Rich: 1.0, Gender: -1.0},
+		data{Name: "Queen   ", Authority: 1.0, Animal: 0.0, Human: 1.0, Rich: 1.0, Gender: +1.0},
+	}
+
+	// -------------------------------------------------------------------------
+	// Compare data points
+	// region Compare data points
+
+	// Display the data points.
+	fmt.Print("\n")
+	for _, v := range dataPoints {
+		fmt.Printf("Vector: Name(%s) len(%d) %v\n", v.(data).Name, len(v.(data).Vector()), v.(data).Vector())
+	}
+	fmt.Print("\n")
+
+	// Compare each data point to every other by performing a cosine
+	// similarity comparison. This requires converting each data point
+	// into a vector.
+	for _, target := range dataPoints {
+		results := vector.Similarity(target, dataPoints...)
+
+		for _, result := range results {
+			fmt.Printf("%s -> %s: %.2f%% similar\n",
+				result.Target.(data).Name,
+				result.DataPoint.(data).Name,
+				result.Percentage)
+		}
+		fmt.Print("\n")
+	}
+
+	// endregion
 }
